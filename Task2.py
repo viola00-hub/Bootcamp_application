@@ -10,7 +10,7 @@ Each time player give an input, it must be a number between 1 and 100, otherwise
 prompts for a valid input.  
 """
 
-import random
+import random # This allows computer compute a random number
 
 def generate_rand_num():
     """
@@ -23,8 +23,8 @@ def get_guess_num():
     """
     Prompt the player to give their guess number and check input's validity 
     """
-    while True:
-        guess_num = input("Please enter your guess number: ")
+    while True: #Keep asking until we get a valid input (guess)
+        guess_num = input("Please enter your guess (1-100): ")
 
         # Check validity of player's input 
         if guess_num.isdigit(): # Make sure player input a string including all digit(s) (e.g., "12" is fine, "abc" is not)
@@ -45,7 +45,7 @@ def check_guess_num(guess_num, generated_num):
     """
     if generated_num == guess_num:
         # Player guessed the correct number 
-        print ("Congratulation! you're correct")
+        print ("Congratulation! You got it")
         print (f"The secret number is {generated_num}")
         return True # End game
 
@@ -70,7 +70,7 @@ def let_play():
     while True:
         guess_num = get_guess_num()
         if check_guess_num(guess_num, generated_num):
-            return # End the function, stop while loop
+            return # Stop the game when a correct guess is presented
 
 
 # Call main function to start a game 
@@ -80,16 +80,18 @@ let_play()
 # ___________TEST CASES___________
 # Example how this program works
 
-# Please enter your guess number: you
+# Please enter your guess (1-100): abc
 # Input must be a number
-# Please enter your guess number: 120
+# Please enter your guess (1-100): 123
 # Input must be within 1 to 100
-# Please enter your guess number: 34
-# This number is higher than our secret numeber
-# Please enter your guess number: 20
-# This number is higher than our secret numeber
-# Please enter your guess number: 8
-# This number is lower than our secret numeber
-# Please enter your guess number: 11
-# Congratulation! you're correct
-# The secret number is 11
+# Please enter your guess (1-100): 
+# Input must be a number
+# Please enter your guess (1-100): 45
+# This number is lower than our secret number
+# Please enter your guess (1-100): 67
+# This number is lower than our secret number
+# Please enter your guess (1-100): 90
+# This number is higher than our secret number
+# Please enter your guess (1-100): 89
+# Congratulation! You got it
+# The secret number is 89
